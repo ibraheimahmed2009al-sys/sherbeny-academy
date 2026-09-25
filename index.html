@@ -5,99 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sherbeny Academy | شربيني أكاديمي للمواد الهندسية والحاسب</title>
     <style>
-        /* كود التصميم المباشر لضمان الأناقة بدون إنترنت */
+        /* كود التصميم المباشر لضمان الأناقة الكاملة على الموبايل والكمبيوتر بدون أي تداخل */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f8fafc; color: #334155; line-height: 1.6; }
         
-        /* شريط علوي احترافي */
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; padding: 15px 40px; display: flex; justify-content: space-between; items-center: center; }
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo-box { background-color: #2563eb; color: white; font-weight: bold; padding: 8px; rounded-radius: 8px; width: 40px; height: 40px; display: grid; grid-template-columns: repeat(2, 1fr); text-align: center; font-size: 14px; border-radius: 8px; align-items: center; }
-        .logo-text h1 { font-size: 20px; font-weight: 900; color: #1e3a8a; }
-        .logo-text p { font-size: 12px; color: #64748b; font-weight: bold; }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a { text-decoration: none; color: #475569; font-weight: bold; font-size: 14px; transition: 0.3s; }
-        .nav-links a:hover { color: #2563eb; }
-        .btn-nav { background-color: #2563eb; color: white; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 14px; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); transition: 0.3s; }
-        .btn-nav:hover { background-color: #1d4ed8; transform: translateY(-1px); }
-
+        /* شريط علوي احترافي ومتجاوب مع الموبايل */
+        .navbar { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 15px 20px; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; justify-content: center; width: 100%; }
+        .logo-box { background-color: #2563eb; color: white; font-weight: bold; width: 38px; height: 38px; border-radius: 8px; display: grid; grid-template-columns: repeat(2, 1fr); align-items: center; justify-items: center; font-size: 13px; padding: 2px; flex-shrink: 0; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
+        .logo-text { text-align: right; }
+        .logo-text h1 { font-size: 19px; font-weight: 900; color: #1e3a8a; letter-spacing: -0.5px; margin: 0; line-height: 1.2; }
+        .logo-text p { font-size: 11px; color: #64748b; font-weight: bold; margin: 2px 0 0 0; }
+        
+        .nav-buttons { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; flex-wrap: wrap; }
+        .nav-link-btn { text-decoration: none; color: #475569; font-weight: bold; font-size: 12px; padding: 8px 12px; background-color: #f1f5f9; border-radius: 8px; transition: 0.2s; }
+        .btn-nav-pay { background-color: #2563eb; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 12px; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.15); transition: 0.2s; white-space: nowrap; }
+        
         /* الواجهة الرئيسية الفخمة */
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 90px 20px; text-align: center; }
-        .hero h2 { font-size: 42px; font-weight: 900; mb: 15px; margin-bottom: 20px; }
-        .hero p { font-size: 18px; color: #cbd5e1; max-w: 600px; margin: 0 auto 35px auto; max-width: 650px; }
-        .hero-btns { display: flex; justify-content: center; gap: 15px; }
-        .btn-white { background-color: white; color: #1e3a8a; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .btn-white:hover { background-color: #f1f5f9; }
-        .btn-green { background-color: #10b981; color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); transition: 0.3s; }
-        .btn-green:hover { background-color: #059669; }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 70px 20px; text-align: center; }
+        .hero h2 { font-size: 32px; font-weight: 900; margin-bottom: 15px; }
+        .hero p { font-size: 16px; color: #cbd5e1; max-w: 600px; margin: 0 auto 30px auto; }
+        .hero-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .btn-white { background-color: white; color: #1e3a8a; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 14px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .btn-green { background-color: #10b981; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 14px; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); transition: 0.3s; }
+
+        /* شبكة عرض المواد الأكاديمية */
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 35px; font-size: 24px; color: #0f172a; font-weight: 900; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 4px; background-color: #2563eb; margin: 8px auto 0 auto; border-radius: 10px; }
+        .grid-courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
+        .card-icon { font-size: 26px; margin-bottom: 12px; }
+        .card h3 { font-size: 17px; color: #1e3a8a; margin-bottom: 12px; font-weight: 900; }
+        .card-list { list-style: none; }
+        .card-list li { font-size: 13px; color: #475569; margin-bottom: 8px; font-weight: 500; }
+        
+        /* استمارة طلب الاشتراك */
+        .register-section { background-color: #f1f5f9; padding: 60px 20px; }
+        .form-box { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 13px; font-weight: bold; color: #334155; margin-bottom: 6px; }
+        .form-group input, .form-group select { width: 100%; padding: 11px 14px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #f8fafc; font-size: 14px; }
+        .btn-submit { width: 100%; background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; }
+        
+        /* التذييل والأيقونة العائمة */
+        .footer { background-color: #0f172a; color: #94a3b8; padding: 50px 20px 25px 20px; font-size: 13px; }
+        .footer-grid { max-width: 1000px; margin: 0 auto 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .footer-col h4 { color: white; margin-bottom: 12px; font-size: 15px; font-weight: bold; }
+        .footer-copy { text-align: center; border-top: 1px solid #1e293b; padding-top: 20px; font-size: 11px; color: #64748b; }
+        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #10b981; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
+        .whatsapp-float svg { width: 26px; height: 26px; fill: white; }
     </style>
 </head>
 <body>
 
+    <!-- شريط التنقل المحمي تماماً من التداخل -->
     <nav class="navbar">
-        <div class="logo-area">
-            <!-- الشعار الجديد بعد تنسيق وتوزيع الرموز هندسياً -->
-            <div class="logo-box" style="display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 4px; padding: 4px;">
-                <span style="width: 14px; height: 14px; font-size: 13px; line-height: 14px;">+</span>
-                <span style="width: 14px; height: 14px; font-size: 13px; line-height: 14px;">-</span>
-                <span style="width: 14px; height: 14px; font-size: 13px; line-height: 14px;">×</span>
-                <span style="width: 14px; height: 14px; font-size: 13px; line-height: 14px;">=</span>
+        <div class="nav-container">
+            <div class="logo-area">
+                <div class="logo-box">
+                    <span>+</span><span>-</span>
+                    <span>×</span><span>=</span>
+                </div>
+                <div class="logo-text">
+                    <h1>SHERBENY ACADEMY</h1>
+                    <p>شربيني أكاديمي للمواد الهندسية</p>
+                </div>
             </div>
-            <div class="logo-text">
-                <h1>SHERBENY ACADEMY</h1>
-                <p>شربيني أكاديمي</p>
+            <div class="nav-buttons">
+                <a href="#courses" class="nav-link-btn">المواد المتاحة</a>
+                <a href="#register" class="nav-link-btn">طلب اشتراك</a>
+                <a href="#register" class="btn-nav-pay">طلب رابط الدفع</a>
             </div>
         </div>
-        <div class="nav-links">
-            <a href="#courses">المواد المتاحة</a>
-            <a href="#register">طلب اشتراك</a>
-        </div>
-        <a href="#register" class="btn-nav">طلب رابط الدفع</a>
     </nav>
 
+    <!-- الواجهة الرئيسية -->
     <header class="hero">
-        <h2>هندسة وحاسبات</h2>
-        <p>تقدم الأكاديمية شروحات وفيديوهات تعليمية لطلاب المرحلة الجامعية</p>
+        <h2>هندسة وحاسبات.. بدون تعقيد أكاديمي</h2>
+        <p>تقدم الأكاديمية شروحات وفيديوهات تعليمية لطلاب المرحلة الجامعية تضمن لك الامتياز في التجميعات والاختبارات.</p>
         <div class="hero-btns">
             <a href="#courses" class="btn-white">تصفح المواد</a>
             <a href="https://wa.me/" target="_blank" class="btn-green">تواصل واتساب مباشر</a>
         </div>
     </header>
-	<style>
-        /* تابع كود التصميم المباشر للمحتوى والاستمارة */
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 45px; font-size: 28px; color: #0f172a; font-weight: 900; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 5px; background-color: #2563eb; margin: 10px auto 0 auto; border-radius: 10px; }
-        .grid-courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
-        .card-icon { font-size: 28px; margin-bottom: 15px; }
-        .card h3 { font-size: 18px; color: #1e3a8a; margin-bottom: 15px; font-weight: 900; }
-        .card-list { list-style: none; }
-        .card-list li { font-size: 14px; color: #475569; margin-bottom: 8px; font-weight: 500; }
-        
-        /* تصميم استمارة طلب تفعيل المادة */
-        .register-section { background-color: #f1f5f9; padding: 80px 20px; }
-        .form-box { background: white; max-width: 550px; margin: 0 auto; padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 13px; font-weight: bold; color: #334155; margin-bottom: 8px; }
-        .form-group input, .form-group select { width: 100%; padding: 12px 15px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #f8fafc; font-size: 14px; font-weight: 500; outline: none; transition: 0.3s; }
-        .form-group input:focus, .form-group select:focus { border-color: #2563eb; background-color: white; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-        .btn-submit { width: 100%; background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%); color: white; border: none; padding: 15px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); }
-        .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3); }
-        
-        /* تذييل الصفحة والشروط */
-        .footer { background-color: #0f172a; color: #94a3b8; padding: 60px 40px 30px 40px; font-size: 14px; }
-        .footer-grid { max-width: 1000px; margin: 0 auto 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .footer-col h4 { color: white; margin-bottom: 15px; font-size: 16px; font-weight: bold; }
-        .footer-copy { text-align: center; border-top: 1px solid #1e293b; padding-top: 25px; font-size: 12px; color: #64748b; font-weight: bold; }
-
-        /* التحكم الصارم بأيقونة الواتساب العائمة لكي لا تكبر مجدداً */
-        .whatsapp-float { position: fixed; bottom: 25px; left: 25px; background-color: #10b981; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; transition: 0.3s; text-decoration: none; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        .whatsapp-float svg { width: 30px; height: 30px; fill: white; display: block; }
-    </style>
-
+	<!-- عرض المواد الأكاديمية -->
     <section class="container" id="courses">
         <h3 class="section-title">المسارات والمواد المتاحة</h3>
         <div class="grid-courses">
@@ -133,10 +126,12 @@
             </div>
         </div>
     </section>
-	<section class="register-section" id="register">
+
+    <!-- استمارة الاشتراك المتفاعلة والمربوطة تلقائياً بالواتساب -->
+    <section class="register-section" id="register">
         <div class="form-box">
-            <h3 style="text-align: center; font-size: 22px; font-weight: 900; margin-bottom: 8px; color: #0f172a;">طلب الاشتراك وتفعيل الكورس</h3>
-            <p style="text-align: center; font-size: 13px; color: #64748b; margin-bottom: 30px; font-weight: 500;">أدخل بياناتك وسيتم فتح محادثة الواتساب فوراً لتلقي رابط الدفع المباشر</p>
+            <h3 style="text-align: center; font-size: 20px; font-weight: 900; margin-bottom: 6px; color: #0f172a;">طلب الاشتراك وتفعيل الكورس</h3>
+            <p style="text-align: center; font-size: 13px; color: #64748b; margin-bottom: 25px;">أدخل بياناتك وسيتم فتح محادثة الواتساب فوراً لتلقي رابط الدفع المباشر</p>
             
             <form onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
@@ -164,15 +159,17 @@
             </form>
         </div>
     </section>
-	<footer class="footer">
+
+    <!-- تذييل الصفحة والشروط القانونية المطلوبة لشركات التحصيل -->
+    <footer class="footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>طريقة التسليم وسياسة الاشتراك</h4>
-                <p style="color: #94a3b8; font-size: 13px; line-height: 1.6;">بعد التواصل معنا وتلقي رابط الدفع وإتمام العملية بنجاح، يتم تفعيل الحساب الرقمي الخاص بالطالب فوراً، حيث تصله بيانات الدخول والتحميل للمنصة التعليمية مباشرة لتشغيل الكورس الفعلي.</p>
+                <p>بعد التواصل معنا وتلقي رابط الدفع وإتمام العملية بنجاح، يتم تفعيل الحساب الرقمي الخاص بالطالب فوراً للوصول إلى المنصة التعليمية المحمية وتنزيل مشغل الكورس.</p>
             </div>
             <div class="footer-col">
-                <h4>شروط الملكية الفكرية والاستخدام</h4>
-                <p style="color: #94a3b8; font-size: 13px; line-height: 1.6;">جميع المواد والشروحات هي ملكية فكرية مطلقة وحصرية لـ Sherbeny Academy. يُمنح الطالب ترخيصاً شخصياً منفرداً للمشاهدة ويُمنع منعاً باتاً مشاركة أو تسريب الحساب لأي شخص آخر.</p>
+                <h4>شروط الملكية الفكرية الاستخدام</h4>
+                <p>جميع المواد والشروحات هي ملكية فكرية مطلقة وحصرية لـ Sherbeny Academy. يُمنح الطالب ترخيصاً شخصياً منفرداً للمشاهدة ويُمنع منعاً باتاً مشاركة بيانات حسابه الشخصي أو تسريبها.</p>
             </div>
         </div>
         <div class="footer-copy">
@@ -180,37 +177,33 @@
         </div>
     </footer>
 
-    <!-- أيقونة الواتساب العائمة بحجمها الصغير والمثالي المقفل برمجياً -->
+    <!-- أيقونة الواتساب العائمة المضبوطة بأحجام ثابتة للموبايل -->
     <a href="https://wa.me/" target="_blank" class="whatsapp-float">
         <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.006 5.284 5.296.001 11.82.001c3.162.001 6.132 1.233 8.365 3.47 2.233 2.236 3.46 5.207 3.459 8.371-.006 6.545-5.295 11.828-11.822 11.828-1.995-.001-3.957-.503-5.694-1.458L0 24zm6.59-4.846c1.6.95 3.189 1.449 4.725 1.451 5.435.002 9.851-4.388 9.856-9.742.002-2.592-1.002-5.031-2.83-6.861-1.827-1.83-4.264-2.838-6.857-2.84-5.443 0-9.859 4.418-9.863 9.774-.001 1.637.441 3.232 1.282 4.654l-.98 3.579 3.667-.962zm10.743-6.883c-.297-.148-1.758-.867-2.03-.967-.273-.099-.471-.148-.669.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.197 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-     </a>
+    </a>
 
+    <!-- كود الجافا سكريبت النقي لفتح محادثة الواتساب المباشرة -->
     <script>
         function sendToWhatsApp(event) {
             event.preventDefault();
             
-            // سحب البيانات من النموذج
             var name = document.getElementById('studentName').value;
             var email = document.getElementById('studentEmail').value;
             var course = document.getElementById('courseSelect').value;
             
-            // رقمك المعتمد المباشر بالصيغة الدولية الصحيحة بدون أصفار أو علامة +
             var phoneNumber = "966599016645"; 
             
-            // صياغة نص الرسالة
             var messageText = "مرحباً دكتور شربيني، أود الاشتراك في أكاديميتكم.\n\n" +
                               "• الاسم: " + name + "\n" +
                               "• البريد الإلكتروني: " + email + "\n" +
                               "• الكورس المطلوب: " + course + "\n\n" +
                               "فضلاً، أريد تزويدي برابط الدفع المباشر.";
             
-            // تشفير النص ليكون متوافقاً مع روابط الإنترنت
             var encodedText = encodeURIComponent(messageText);
-            
-            // تطبيق فكرتك البرمجية الصائبة: الرابط المباشر الصارم والموثوق عالمياً
             var finalWaUrl = "https://wa.me/" + phoneNumber + "?text=" + encodedText;
             
-            // فتح الرابط فوراً وبشكل صريح ومباشر
             window.open(finalWaUrl, '_blank');
         }
     </script>
+</body>
+</html>
