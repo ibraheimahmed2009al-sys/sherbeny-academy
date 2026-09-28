@@ -3,207 +3,522 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherbeny Academy | شربيني أكاديمي للمواد الهندسية والحاسب</title>
+    <title>Sherbeny Academy | شربيني أكاديمي</title>
+    <!-- استدعاء أيقونات احترافية للموقع -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* كود التصميم المباشر لضمان الأناقة الكاملة على الموبايل والكمبيوتر بدون أي تداخل */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f8fafc; color: #334155; line-height: 1.6; }
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #25d366;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --text-gray: #4b5563;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #fafafa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        /* تنسيق رأس الصفحة الثابت والملتصف بالقمة */
+        header {
+            background: #ffffff !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            transition: transform 0.3s ease-in-out; /* هذا السطر يجعل اختفاء وظهور الشريط ناعماً للعين */
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.4rem 1rem !important; /* تقليل الفراغ العلوي والسفلي لأقل درجة */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .logo {
+            font-size: 1.1rem !important; /* تصغير حجم اسم الأكاديمية */
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.8rem !important; /* تصغير حجم خط الروابط والسياسات */
+            margin-right: 0.5rem;
+        }
         
-        /* شريط علوي احترافي ومتجاوب مع الموبايل */
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 15px 20px; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .logo-area { display: flex; align-items: center; gap: 12px; justify-content: center; width: 100%; }
-        .logo-box { background-color: #2563eb; color: white; font-weight: bold; width: 38px; height: 38px; border-radius: 8px; display: grid; grid-template-columns: repeat(2, 1fr); align-items: center; justify-items: center; font-size: 13px; padding: 2px; flex-shrink: 0; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
-        .logo-text { text-align: right; }
-        .logo-text h1 { font-size: 19px; font-weight: 900; color: #1e3a8a; letter-spacing: -0.5px; margin: 0; line-height: 1.2; }
-        .logo-text p { font-size: 11px; color: #64748b; font-weight: bold; margin: 2px 0 0 0; }
+        /* الجزء الأول: تنسيق قسم الواجهة الرئيسية المطور */
+        /* استبدل الـ .hero القديم بهذا فقط */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
+            color: white !important;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            display: block !important; 
+            width: 100% !important;
+            clear: both;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        /* أزرار الاتصال عبر الواتساب */
+        .whatsapp-buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .btn-whatsapp {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+        /* شبكة عرض الكورسات المرنة للموبايل والكمبيوتر */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        .course-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .course-info h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .course-info h3 i {
+            color: #3b82f6;
+        }
+        .course-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .course-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 1rem;
+        }
+        .badge {
+            background: #eff6ff;
+            color: #1e40af;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .btn-enroll {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        /* تنسيق الصفحات القانونية المستقلة */
+        /* ابحث عن هذا القسم وغير هذا السطر فقط لمنع الالتصاق بالشعار نهائياً */
+        .legal-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            margin-top: 4rem !important;
+            margin-bottom: 2rem;
+            display: none;
+            scroll-margin-top: 190px; /* تم رفع القيمة هنا لتضمن إبعاد النص عن الشعار بالكامل */
+        }
+        .legal-section:target {
+            display: block;
+        }
+        .main-content:has(:target) #home-content {
+            display: none;
+        }
+        .legal-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        .legal-section h3 {
+            margin: 1.5rem 0 0.5rem 0;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        .legal-section p, .legal-section ul {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .legal-section ul {
+            padding-right: 1.2rem;
+        }
+	
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 1.5rem 1rem 1.5rem;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 2rem;
+        }
+        .footer-col h4 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .footer-col p, .footer-col a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        .footer-col a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+        /* تحسينات إضافية مخصصة لشاشات الموبايل الصغيرة جدًا */
+        @media (max-width: 480px) {
+            .nav-container { padding: 1rem; justify-content: center; text-align: center; }
+            .nav-links { justify-content: center; width: 100%; }
+            .hero h1 { font-size: 1.8rem; }
+            .legal-section { padding: 1.2rem; }
+        }
+		/* الجزء الثاني بالكامل: تنسيق صندوق الاستمارة وكافة الحقول والأوامر الداخلية */
+        .booking-form-container {
+            background: #ffffff !important; /* إجبار الخلفية البيضاء المصمتة على الظهور */
+            color: #1f2937 !important;
+            max-width: 500px;
+            margin: 2rem auto 0 auto !important;
+            padding: 2.5rem 2rem !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+            text-align: right !important;
+            position: relative;
+            z-index: 99;
+            display: block !important;
+        }
+        .booking-form-container h3 {
+            color: var(--primary) !important;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 0.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem !important;
+            display: block !important;
+            width: 100%;
+        }
+        .form-group input, .form-group select {
+            width: 100% !important;
+            padding: 0.8rem 1rem !important;
+            border: 1px solid #ced4da !important;
+            border-radius: 8px !important;
+            font-size: 0.95rem !important;
+            outline: none;
+            background-color: #ffffff !important; /* منع الشفافية نهائيًا */
+            color: #212529 !important; /* لون نص الكتابة الافتراضي */
+            display: block !important;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15) !important;
+        }
+        .btn-submit-form {
+            width: 100% !important;
+            background-color: var(--secondary) !important;
+            color: white !important;
+            border: none !important;
+            padding: 0.9rem !important;
+            border-radius: 8px !important;
+            font-size: 1.05rem !important;
+            font-weight: bold !important;
+            cursor: pointer;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-submit-form:hover {
+            background-color: #20ba56 !important;
+        }
         
-        .nav-buttons { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; flex-wrap: wrap; }
-        .nav-link-btn { text-decoration: none; color: #475569; font-weight: bold; font-size: 12px; padding: 8px 12px; background-color: #f1f5f9; border-radius: 8px; transition: 0.2s; }
-        .btn-nav-pay { background-color: #2563eb; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 12px; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.15); transition: 0.2s; white-space: nowrap; }
-        
-        /* الواجهة الرئيسية الفخمة */
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 70px 20px; text-align: center; }
-        .hero h2 { font-size: 32px; font-weight: 900; margin-bottom: 15px; }
-        .hero p { font-size: 16px; color: #cbd5e1; max-w: 600px; margin: 0 auto 30px auto; }
-        .hero-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-        .btn-white { background-color: white; color: #1e3a8a; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 14px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .btn-green { background-color: #10b981; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 14px; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); transition: 0.3s; }
-
-        /* شبكة عرض المواد الأكاديمية */
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 35px; font-size: 24px; color: #0f172a; font-weight: 900; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 4px; background-color: #2563eb; margin: 8px auto 0 auto; border-radius: 10px; }
-        .grid-courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
-        .card-icon { font-size: 26px; margin-bottom: 12px; }
-        .card h3 { font-size: 17px; color: #1e3a8a; margin-bottom: 12px; font-weight: 900; }
-        .card-list { list-style: none; }
-        .card-list li { font-size: 13px; color: #475569; margin-bottom: 8px; font-weight: 500; }
-        
-        /* استمارة طلب الاشتراك */
-        .register-section { background-color: #f1f5f9; padding: 60px 20px; }
-        .form-box { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; font-size: 13px; font-weight: bold; color: #334155; margin-bottom: 6px; }
-        .form-group input, .form-group select { width: 100%; padding: 11px 14px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #f8fafc; font-size: 14px; }
-        .btn-submit { width: 100%; background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; }
-        
-        /* التذييل والأيقونة العائمة */
-        .footer { background-color: #0f172a; color: #94a3b8; padding: 50px 20px 25px 20px; font-size: 13px; }
-        .footer-grid { max-width: 1000px; margin: 0 auto 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .footer-col h4 { color: white; margin-bottom: 12px; font-size: 15px; font-weight: bold; }
-        .footer-copy { text-align: center; border-top: 1px solid #1e293b; padding-top: 20px; font-size: 11px; color: #64748b; }
-        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #10b981; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
-        .whatsapp-float svg { width: 26px; height: 26px; fill: white; }
+        /* ضبط التوافق السلس للموبايل */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.7rem; }
+            .hero p { font-size: 0.95rem; }
+            .booking-form-container { padding: 1.2rem; }
+        }
     </style>
 </head>
 <body>
-
-    <!-- شريط التنقل المحمي تماماً من التداخل -->
-    <nav class="navbar">
+<header id="mainHeader">
         <div class="nav-container">
-            <div class="logo-area">
-                <div class="logo-box">
-                    <span>+</span><span>-</span>
-                    <span>×</span><span>=</span>
-                </div>
-                <div class="logo-text">
-                    <h1>SHERBENY ACADEMY</h1>
-                    <p>شربيني أكاديمي للمواد الهندسية</p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <a href="#courses" class="nav-link-btn">المواد المتاحة</a>
-                <a href="#register" class="nav-link-btn">طلب اشتراك</a>
-                <a href="#register" class="btn-nav-pay">طلب رابط الدفع</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- الواجهة الرئيسية -->
-    <header class="hero">
-        <h2>هندسة وحاسبات.. بدون تعقيد أكاديمي</h2>
-        <p>تقدم الأكاديمية شروحات وفيديوهات تعليمية لطلاب المرحلة الجامعية تضمن لك الامتياز في التجميعات والاختبارات.</p>
-        <div class="hero-btns">
-            <a href="#courses" class="btn-white">تصفح المواد</a>
-            <a href="https://wa.me/" target="_blank" class="btn-green">تواصل واتساب مباشر</a>
+            <a href="https://ibb.co/RkPJRzD4"onclick="return false;" class="logo"><img src="https://i.ibb.co/RkPJRzD4/Screenshot-2-1.jpg" alt="Screenshot-2-1" border="0"></a>
+            <nav class="nav-links">
+                <a href="#">الرئيسية</a>
+                <a href="#privacy">سياسة الخصوصية</a>
+                <a href="#refund">سياسة الاستبدال والاسترجاع</a>
+                <a href="#terms">الشروط والأحكام</a>
+            </nav>
         </div>
     </header>
-	<!-- عرض المواد الأكاديمية -->
-    <section class="container" id="courses">
-        <h3 class="section-title">المسارات والمواد المتاحة</h3>
-        <div class="grid-courses">
-            <div class="card">
-                <div class="card-icon">📐</div>
-                <h3>الرياضيات والتفاضل الهندسي</h3>
-                <ul class="card-list">
-                    <li>✓ Calculus 1 & 2</li>
-                    <li>✓ Advanced Calculus</li>
-                    <li>✓ Multivariate Calculus</li>
-                    <li>✓ Differential Equations</li>
-                    <li>✓ Math for CS</li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="card-icon">📊</div>
-                <h3>علوم البيانات والإحصاء</h3>
-                <ul class="card-list">
-                    <li>✓ Statistics and Probability</li>
-                    <li>✓ Data Science</li>
-                    <li>✓ Data Mining</li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="card-icon">💻</div>
-                <h3>بنية الحاسب والإلكترونيات</h3>
-                <ul class="card-list">
-                    <li>✓ Computer Organization</li>
-                    <li>✓ Algorithms</li>
-                    <li>✓ Digital Logic & Electronics</li>
-                    <li>✓ Digital Image Processing</li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
-    <!-- استمارة الاشتراك المتفاعلة والمربوطة تلقائياً بالواتساب -->
-    <section class="register-section" id="register">
-        <div class="form-box">
-            <h3 style="text-align: center; font-size: 20px; font-weight: 900; margin-bottom: 6px; color: #0f172a;">طلب الاشتراك وتفعيل الكورس</h3>
-            <p style="text-align: center; font-size: 13px; color: #64748b; margin-bottom: 25px;">أدخل بياناتك وسيتم فتح محادثة الواتساب فوراً لتلقي رابط الدفع المباشر</p>
-            
-            <form onsubmit="sendToWhatsApp(event)">
-                <div class="form-group">
-                    <label>الاسم الثلاثي للطالب</label>
-                    <input type="text" id="studentName" required placeholder="اكتب اسمك هنا">
+    <main class="main-content">
+        <!-- الواجهة الرئيسية وعرض المواد -->
+        <div id="home-content">
+            <section class="hero">
+                <h1>شربيني أكاديمي - Sherbeny Academy</h1>
+                <p>دورات تدريبية مسجلة مخصصة لطلاب كليات الهندسة وعلوم الحاسب</p>
+                
+                <!-- الاستمارة الاحترافية الشاملة لجميع المواد والبيانات -->
+                <div class="booking-form-container">
+                    <h3>طلب اشتراك / حصة تجريبية</h3>
+                    <form id="studentForm" onsubmit="redirectToWhatsappFinal(event)">
+                        <div class="form-group">
+                            <input type="text" id="studentName" placeholder="اسم الطالب بالكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="studentEmail" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="studentPhone" placeholder="رقم الهاتف (الواتساب)" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="courseSelect" required>
+                                <option value="" disabled selected>اختر المادة التعليمية...</option>
+                                <option value="التفاضل والتكامل">التفاضل والتكامل</option>
+                                <option value="الإحصاء والاحتمالات">الإحصاء والاحتمالات</option>
+                                <option value="رياضيات علوم الحاسب">رياضيات علوم الحاسب</option>
+                                <option value="معمارية وتنظيم الحاسوب">معمارية وتنظيم الحاسوب</option>
+                                <option value="هيكلة البيانات والخوارزميات">هيكلة البيانات والخوارزميات</option>
+                                <option value="معالجة الصور الرقمية">معالجة الصور الرقمية</option>
+                                <option value="علوم البيانات وتنقيبها">علوم البيانات وتنقيبها</option>
+                                <option value="مبادئ الإلكترونيات">مبادئ الإلكترونيات</option>
+                                <option value="تصميم وتحليل الخوارزميات">تصميم وتحليل الخوارزميات</option>
+                                <option value="الجبر الخطي">الجبر الخطي</option>
+                                <option value="المعادلات التفاضلية">المعادلات التفاضلية</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="requestType" required>
+                                <option value="" disabled selected>نوع الطلب...</option>
+                                <option value="طلب شرح تجريبي مجاني">طلب شرح تجريبي مجاني</option>
+                                <option value="الاشتراك المباشر في الكورس">الاشتراك المباشر في الكورس</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="branchSelect" required>
+                                <option value="" disabled selected>اختر الفرع للتواصل...</option>
+                                <option value="egypt">التواصل مع فرع مصر 🇪🇬</option>
+                                <option value="saudi">التواصل مع فرع السعودية 🇸🇦</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit-form">
+                            <i class="fab fa-whatsapp"></i> إرسال الطلب وتفعيل التواصل
+                        </button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>البريد الإلكتروني</label>
-                    <input type="email" id="studentEmail" required placeholder="student@university.edu">
-                </div>
-                <div class="form-group">
-                    <label>الكورس المراد تفعيله</label>
-                    <select id="courseSelect" required>
-                        <option value="">-- اختر المادة الأكاديمية --</option>
-                        <option value="Calculus 1 & 2">Calculus 1 & 2</option>
-                        <option value="Advanced / Multivariate Calculus">Advanced / Multivariate Calculus</option>
-                        <option value="Differential Equations & Math For CS">Differential Equations & Math For CS</option>
-                        <option value="Statistics and Probability">Statistics and Probability</option>
-                        <option value="Data Science & Data Mining">Data Science & Data Mining</option>
-                        <option value="Computer Organization & Digital Logic">Computer Organization & Digital Logic</option>
-                        <option value="Algorithms & Image Processing">Algorithms & Image Processing</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">تأكيد الطلب والحصول على رابط الدفع 💬</button>
-            </form>
+            </section>
         </div>
-    </section>
+		<!-- سياسة الخصوصية -->
+        <div id="privacy" class="legal-section container">
+            <h2>سياسة الخصوصية (Privacy Policy)</h2>
+            <p>مرحبًا بكم في <strong>Sherbeny Academy</strong>. خصوصية بياناتكم كطلاب ومستخدمين لها الأولوية القصوى لدينا.</p>
+            <h3>1. البيانات التي نجمعها</h3>
+            <p>نقوم بجمع بيانات الاتصال الأساسية المتمثلة في الاسم ورقم الهاتف لإرسال وتفعيل الكورسات التعليمية المسجلة عبر قنوات التواصل المعتمدة.</p>
+            <h3>2. حماية البيانات</h3>
+            <p>نحن نلتزم بحفظ وتأمين بيانات الطلاب بشكل مشفر تماماً، ولا نبيع أو نشارك معلوماتكم مع أي أطراف ثالثة ترويجية أو إعلانية.</p>
+            <h3>3. الدفع الإلكتروني الآمن</h3>
+            <p>جميع عمليات الدفع تتم معالجتها وتشفيرها بواسطة بوابات الدفع الإلكتروني الرسمية .</p>
+        </div>
 
-    <!-- تذييل الصفحة والشروط القانونية المطلوبة لشركات التحصيل -->
-    <footer class="footer">
+        <!-- سياسة الاستبدال والاسترجاع -->
+        <div id="refund" class="legal-section container">
+            <h2>سياسة الاستبدال والارتجاع (Refund Policy)</h2>
+            <p>توضح منصة <strong>Sherbeny Academy</strong> سياسة إلغاء الاشتراكات للمساقات والمواد المسجلة وفق الآتي:</p>
+            <h3>1. طبيعة الخدمة</h3>
+            <p>الخدمات التي تقدمها المنصة هي مقررات تعليمية ومحاضرات رقمية مسجلة ومعدة مسبقاً لطلاب كليات الهندسة وعلوم الحاسب، وتندرج تحت فئة المنتجات الرقمية المستهلكة فور الحصول عليها.</p>
+            <h3>2. شروط طلب الاسترداد</h3>
+            <ul>
+                <li>يحق للطالب طلب إلغاء الاشتراك واسترداد الرسوم المدفوعة كاملة بشرط ألا يكون قد تم إرسال روابط المقررات التعليمية أو تفعيل حسابه الدراسي.</li>
+                <li>بمجرد تفعيل الحساب أو إرسال المواد التعليمية والروابط المسجلة للطالب، تصبح الرسوم غير قابلة للاسترداد نهائياً نظراً لطبيعة تسليم المنتجات الرقمية الفورية.</li>
+            </ul>
+        </div>
+
+        <!-- الشروط والأحكام -->
+        <div id="terms" class="legal-section container">
+            <h2>الشروط والأحكام (Terms & Conditions)</h2>
+            <p>دخولك واستخدامك لمنصة <strong>Sherbeny Academy</strong> يعني إقرارك بالموافقة الكاملة على الشروط التالية:</p>
+            <h3>1. حقوق الملكية الفكرية وحظر التسريب</h3>
+            <p>جميع مقاطع الفيديو، الشروحات، الملفات والمواد العلمية داخل الكورسات هي ملكية فكرية وحصرية مخصصة لاستخدام الطالب المشترك نفسه فقط. يُمنع منعاً باتاً إعادة بيعها، أو تصوير الشاشات وإعادة نشرها، أو مشاركة روابط التفعيل مع الآخرين. أي مخالفة لذلك تعرض صاحبها للحظر المباشر من المنصة والملاحقة القانونية.</p>
+            <h3>2. التزامات الطالب الدراسي</h3>
+            <p>يقتصر استخدام تفعيل الكورس على الأغراض التعليمية الشخصية للطالب طوال فترة دراسته الأكاديمية.</p>
+        </div>
+    </main>
+	<footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>طريقة التسليم وسياسة الاشتراك</h4>
-                <p>بعد التواصل معنا وتلقي رابط الدفع وإتمام العملية بنجاح، يتم تفعيل الحساب الرقمي الخاص بالطالب فوراً للوصول إلى المنصة التعليمية المحمية وتنزيل مشغل الكورس.</p>
+                <h4>Sherbeny Academy</h4>
+                <p>منصة تعليمية متخصصة في تقديم المقررات الهندسية والبرمجية المسجلة لطلاب كليات الهندسة وعلوم الحاسب لمساعدتهم على التفوق الدراسي والأكاديمي .</p>
             </div>
             <div class="footer-col">
-                <h4>شروط الملكية الفكرية الاستخدام</h4>
-                <p>جميع المواد والشروحات هي ملكية فكرية مطلقة وحصرية لـ Sherbeny Academy. يُمنح الطالب ترخيصاً شخصياً منفرداً للمشاهدة ويُمنع منعاً باتاً مشاركة بيانات حسابه الشخصي أو تسريبها.</p>
+                <h4>سياسات الموقع</h4>
+                <a href="#">الرئيسية</a>
+                <a href="#privacy">سياسة الخصوصية</a>
+                <a href="#refund">سياسة الاستبدال والاسترجاع</a>
+                <a href="#terms">الشروط والأحكام</a>
+            </div>
+            <div class="footer-col">
+                <h4>بيانات المقر والاتصال </h4>
+                <p><i class="fas fa-map-marker-alt"></i> 483 قطاع أ حي صفوة أكتوبر - حدائق أكتوبر - محافظة الجيزة - مصر</p>
+                <p><i class="fas fa-phone"></i> مصر: 00201001875318 </p>
+                <p><i class="fas fa-phone"></i> السعودية: 00966599016645</p>
+                <p><i class="fas fa-envelope"></i> sherbedu@gmail.com</p>
+                <p><i class="fas fa-file-invoice"></i> رقم التسجيل الضريبي: 339-330-782</p>
             </div>
         </div>
-        <div class="footer-copy">
-            &copy; 2026 Sherbeny Academy. جميع الحقوق محفوظة. رقم التواصل المعتمد: 0599016645
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sherbeny Academy. جميع الحقوق محفوظة جمهورية مصر العربية</p>
+            
         </div>
     </footer>
-
-    <!-- أيقونة الواتساب العائمة المضبوطة بأحجام ثابتة للموبايل -->
-    <a href="https://wa.me/" target="_blank" class="whatsapp-float">
-        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.006 5.284 5.296.001 11.82.001c3.162.001 6.132 1.233 8.365 3.47 2.233 2.236 3.46 5.207 3.459 8.371-.006 6.545-5.295 11.828-11.822 11.828-1.995-.001-3.957-.503-5.694-1.458L0 24zm6.59-4.846c1.6.95 3.189 1.449 4.725 1.451 5.435.002 9.851-4.388 9.856-9.742.002-2.592-1.002-5.031-2.83-6.861-1.827-1.83-4.264-2.838-6.857-2.84-5.443 0-9.859 4.418-9.863 9.774-.001 1.637.441 3.232 1.282 4.654l-.98 3.579 3.667-.962zm10.743-6.883c-.297-.148-1.758-.867-2.03-.967-.273-.099-.471-.148-.669.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.197 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    </a>
-
-    <!-- كود الجافا سكريبت النقي لفتح محادثة الواتساب المباشرة -->
-    <script>
-        function sendToWhatsApp(event) {
-            event.preventDefault();
+	<script>
+        function redirectToWhatsappFinal(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
             
-            var name = document.getElementById('studentName').value;
-            var email = document.getElementById('studentEmail').value;
-            var course = document.getElementById('courseSelect').value;
+            const branch = document.getElementById('branchSelect').value;
+            let whatsappNumber = "";
             
-            var phoneNumber = "966599016645"; 
+            // تحديد رقم الهاتف بدقة رقمية مجردة لمنع أي خطأ
+            if (branch === "egypt") {
+                whatsappNumber = "201004875318";
+            } else if (branch === "saudi") {
+                whatsappNumber = "966599016645";
+            }
             
-            var messageText = "مرحباً دكتور شربيني، أود الاشتراك في أكاديميتكم.\n\n" +
-                              "• الاسم: " + name + "\n" +
-                              "• البريد الإلكتروني: " + email + "\n" +
-                              "• الكورس المطلوب: " + course + "\n\n" +
-                              "فضلاً، أريد تزويدي برابط الدفع المباشر.";
+            // نص ترحيبي بسيط بالإنجليزية متوافق تمامًا مع معايير واتساب العالمية ولا يتسبب في كسر الرابط محليًا
+            const textMessage = "Hello Sherbeny Academy, I filled the registration form on the website.";
             
-            var encodedText = encodeURIComponent(messageText);
-            var finalWaUrl = "https://wa.me/" + phoneNumber + "?text=" + encodedText;
+            // صياغة الرابط المباشر القياسي والأكثر ثباتًا على الإطلاق
+            const whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(textMessage);
             
-            window.open(finalWaUrl, '_blank');
+            // فتح المحادثة فورًا في نافذة جديدة
+            window.open(whatsappUrl, '_blank');
         }
+		// الكود الديناميكي لإخفاء وإظهار الشريط العلوي تلقائيًا أثناء التعبئة
+        document.addEventListener("DOMContentLoaded", function () {
+            const header = document.getElementById("mainHeader");
+            // جلب جميع حقول الإدخال والقوائم المنسدلة داخل الاستمارة
+            const formInputs = document.querySelectorAll("#studentForm input, #studentForm select");
+
+            formInputs.forEach(input => {
+                // عند الضغط على الحقل وبدء التعبئة (Focus)
+                input.addEventListener("focus", () => {
+                    header.style.transform = "translateY(-100%)"; // إخفاء الشريط برفه لأعلى خارج الشاشة
+                });
+
+                // عند الخروج من الحقل أو إنهاء الكتابة (Blur)
+                input.addEventListener("blur", () => {
+                    header.style.transform = "translateY(0)"; // إعادة الشريط لمكانه الطبيعي فورًا
+                });
+            });
+        });
     </script>
 </body>
 </html>
